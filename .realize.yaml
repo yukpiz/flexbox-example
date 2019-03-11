@@ -1,0 +1,29 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: flexbox-example
+  path: .
+  watcher:
+    extensions:
+    - html
+    - yaml
+    - scss
+    - json
+    - md
+    paths:
+    - /
+    ignored_paths:
+    - .git
+    - .realize
+    - vendor
+    - node_modules
+    scripts:
+    - type: before
+      command: npm install
+      global: true
+      output: true
+    - type: before
+      command: npm run build:sass
+      output: true
